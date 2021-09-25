@@ -24,44 +24,36 @@ $(document).ready(function () {
 });
 
 
-
-
   $(document).ready(function () {
-    var textAreas = $('textarea');
-    console.log(textAreas);
+    
     // get current number of hours
-    // var hour = moment().hours();
-    var hour = 17;
+    var hour = moment().hours();
+    
     console.log(hour);
 
     // loop over time blocks
-    for (var i = 0; i < textAreas.length; i++) {
-      var currentTextArea = textAreas[i];
-      var currentId = currentTextArea.id
-      console.log(currentId);
+    for (var i = 9; i < 18; i++) {
 
       // check if time is past, present, or future
-      //if currentId is smaller than hour then past
-      if (hour < currentId) {
-        $(textAreas).addClass('future');
-        //if blcokHour is equal to current Hour then present
-      } else if (currentId === hour) {
-        $(textAreas).removeClass('future');
-        $(textAreas).addClass('present');
+      //if hour is smaller than i then future
+      if (hour < i) {
+        $('#'+ i).addClass("future");
+        console.log('future');
+        //if Hour is equal to i then present
+      } else if (hour === i) {
+        $('#'+i).removeClass("future");
+        $('#'+i).addClass("present");
+        console.log('present');
         //if neither is true then future
       } else {
-        $(textAreas).removeClass('future');
-        $(textAreas).removeClass('present');
-        $(textAreas).addClass('past');
+        $('#'+i).removeClass("future");
+        $('#'+i).removeClass("present");
+        $('#'+i).addClass("past");
+        console.log('past');
       };
 
       ;
     };
-
-
-
-    // set up interval to check if current time needs to be updated
-    // var interval = setInterval(newHour, 15000);
 
     // load any saved data from localStorage
     $('#nine .description').val(localStorage.getItem('nine'));

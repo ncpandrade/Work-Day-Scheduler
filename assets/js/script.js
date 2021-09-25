@@ -14,9 +14,7 @@ $(document).ready(function() {
   
       // save in localStorage
       localStorage.setItem(time, value);
-  
-    //   // Show notification that item was saved to localStorage by adding class 'show'
-    //   $('.notification').addClass('show');
+
   
       // Timeout to remove 'show' class after 5 seconds
       setTimeout(function() {
@@ -24,39 +22,39 @@ $(document).ready(function() {
       }, 5000);
     });
   
-    function newHour() {
-      // get current number of hours
-      var currentHour = moment().hours();
-  
+    
+      
+      
+        
+    $(document).ready(function() {
+        var textAreas = $('textarea');
+        // get current number of hours
+        var hour = moment().hours();
+
       // loop over time blocks
-      // $('.time-block').each(function() {
-      //   var blockHour = parseInt(
-      //     $(this)
-      //       .attr('id')
-      //       .split('-')[1]
-      //   );
-      for (var i=0; i < textArea; i++) {
-        var blockHour = parseInt(textArea[i].id)
-  
+      for (var i=0; i < textAreas.length; i++) {
+          var currentTextArea = textAreas[i];
+        var currentId = parseInt(currentTextArea.id)
+        
         // check if time is past, present, or future
-        //if blockHour is smaller than currentHour then past
-        if (blockHour < currentHour) {
-          $(textArea).addClass('past');
+        //if currentId is smaller than hour then past
+        if (hour < currentId) {
+          $(textAreas).addClass('future');
         //if blcokHour is equal to current Hour then present
-        } else if (blockHour === currentHour) {
-          $(textArea).removeClass('past');
-          $(textArea).addClass('present');
+        } else if (currentId === hour) {
+          $(textAreas).removeClass('past');
+          $(textAreas).addClass('present');
         //if neither is true then future
         } else {
-          $(textArea).removeClass('past');
-          $(textArea).removeClass('present');
-          $(textArea).addClass('future');
+          $(textAreas).removeClass('future');
+          $(textAreas).removeClass('present');
+          $(textAreas).addClass('past');
         };
-      
-      };
     
+;
+};  
   
-    newHour();
+    // newHour();
   
     // set up interval to check if current time needs to be updated
     var interval = setInterval(newHour, 15000);
@@ -73,5 +71,5 @@ $(document).ready(function() {
     $('#hour-17 .description').val(localStorage.getItem('hour-17'));
   
     
-  }});
-  
+  });
+});

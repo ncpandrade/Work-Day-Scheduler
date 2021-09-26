@@ -1,4 +1,4 @@
-// display current day on page
+// display current day on top of the page
 $('#currentDay').text(moment().format('dddd, MMMM Do'));
 
 $(document).ready(function () {
@@ -12,14 +12,9 @@ $(document).ready(function () {
       .parent()
       .attr('id');
 
-    // save in localStorage
+    // save entered tasks
     localStorage.setItem(time, value);
 
-
-    // Timeout to remove 'show' class after 5 seconds
-    setTimeout(function () {
-      $('.notification').removeClass('show');
-    }, 5000);
   });
 });
 
